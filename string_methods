@@ -1,0 +1,63 @@
+## COMMON STRING METHODS
+
+spam = 'Hello, world!'
+
+print(spam.islower())                      # returns FALSE
+print(spam.isupper())                      # returns FALSE
+print('HELLO'.isupper())                   # returns TRUE
+print('abc12345'.islower())                # returns TRUE
+print('12345'.islower())                   # returns FALSE
+print('12345'.isupper())                   # returns FALSE
+
+print('Hello'.upper())                     # returns 'HELLO'
+print('Hello'.upper().lower())             # returns 'hello'
+print('Hello'.upper().lower().upper())     # returns 'HELLO'
+print('HELLO'.lower())                     # returns 'hello'
+print('HELLO'.lower().islower())           # returns TRUE
+
+def validateInput():
+    while True:
+        print("Enter your age:")
+        age = input()
+        if age.isdecimal():
+            break
+        print("Please enter a number for your age.")
+        
+    while True:
+        print("Select a new password (letters and numbers ONLY):")
+        password = input()
+        if password.isalnum():
+            break
+        print("Passwords can only have letters and numbers.")
+        
+validateInput()
+
+## JUSTIFYING STRINGS IN TABLE FORMAT
+
+def printPicnic(itemsDict, leftWidth, rightWidth):
+    print('PICNIC ITEMS'.center(leftWidth + rightWidth, '-'))
+    for k, v in itemsDict.items():
+        print(k.ljust(leftWidth, '.') + str(v).rjust(rightWidth))
+
+
+# Default dictionary
+picnicItems = {'sandwiches': 4, 'apples': 12, 'cups': 4, 'cookies': 8000}
+
+printPicnic(picnicItems, 12, 5)
+# OUTPUT:
+#
+# ---PICNIC ITEMS--
+# sandwiches..    4
+# apples......   12
+# cups........    4
+# cookies..... 8000
+
+
+printPicnic(picnicItems, 20, 6)
+# OUTPUT:
+#
+# -------PICNIC ITEMS-------
+# sandwiches..........     4
+# apples..............    12
+# cups................     4
+# cookies.............  8000
